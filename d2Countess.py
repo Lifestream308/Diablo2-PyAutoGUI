@@ -343,10 +343,6 @@ time.sleep(.3)
 pyautogui.rightClick(964, 338)
 time.sleep(.3)
 pyautogui.rightClick(964, 338)
-time.sleep(.3)
-pyautogui.rightClick(964, 338)
-time.sleep(.3)
-pyautogui.rightClick(964, 338)
 
 time.sleep(.1)
 
