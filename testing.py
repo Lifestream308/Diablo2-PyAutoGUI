@@ -2,7 +2,7 @@ import pyautogui
 import time
 
 # Wait for 2 seconds before starting
-time.sleep(2)
+time.sleep(1)
 
 # Move the mouse to position (100, 100)
 # pyautogui.moveTo(100, 100, duration=1)
@@ -28,10 +28,10 @@ time.sleep(2)
 # Print the current mouse position
 print(pyautogui.position())
 
-time.sleep(2)
+time.sleep(1)
 
 print(pyautogui.position())
 
-time.sleep(2)
+time.sleep(1)
 
 print(pyautogui.position())
