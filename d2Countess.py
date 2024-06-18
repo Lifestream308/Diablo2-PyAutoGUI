@@ -276,9 +276,9 @@ pyautogui.press('Esc')
 time.sleep(.5)
 
 # check that I am inside level 5 then unpause game
-image_path = 'diablo2Images/ruinsLevel52.jpg'
+image_path = 'diablo2Images/ruinsLevel53.jpg'
 region = (screen_width // 2, 0, screen_width // 2, screen_height)
-location = pyautogui.locateOnScreen(image_path, confidence=0.7, region=region)
+location = pyautogui.locateOnScreen(image_path, confidence=0.6, region=region)
 
 if location:
     print(f"Ruins level 5 image found at: {location}")
@@ -348,11 +348,11 @@ pyautogui.rightClick(964, 338)
 time.sleep(.3)
 pyautogui.rightClick(964, 338)
 
-time.sleep(.5)
+time.sleep(.1)
 
 # look for loot
 pyautogui.press('alt')
 
-time.sleep(3)
+time.sleep(2)
 
 pyautogui.press('esc')
