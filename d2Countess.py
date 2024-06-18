@@ -137,23 +137,32 @@ pyautogui.rightClick(x=1919, y=1)
 time.sleep(0.27)
 pyautogui.rightClick(x=1919, y=1)
 time.sleep(0.27)
-pyautogui.rightClick(x=737, y=369)
+pyautogui.rightClick(x=780, y=250)
 
 # move mouse above entrance to level 2 ruins
 pyautogui.moveTo(1054, 100, duration=0.15)
 
 # manually click entrance for now, but soon try searching for image of entrance to level 2
-pyautogui.moveTo(1054, 304, duration=0.6)
-pyautogui.click()
+try:
+    image_path = 'diablo2Images/ruinsLevel2Entrance.jpg'
+    region = (0, 0, screen_width, screen_height)
+    location = pyautogui.locateOnScreen(image_path, confidence=0.7, region=region)
+    if location:
+        print(f"Ruins level 2 ENTRANCE image found at: {location}")
+    pyautogui.moveTo(location.left + 75, location.top + 125, duration=0.6)
+    pyautogui.click()
+
+except Exception as e:
+    print(f"Error. Can't find level 2 Entrance: {e}")
 
 time.sleep(0.5)
 
 pyautogui.press('Esc')
 
 # Check image to see if inside the safe part of ruins level 2. Unpause if safe
-image_path = 'diablo2Images/ruinsLevel2.jpg'
+image_path = 'diablo2Images/ruinsLevel22.jpg'
 region = (0, 0, screen_width // 2, screen_height)
-location = pyautogui.locateOnScreen(image_path, confidence=0.4, region=region)
+location = pyautogui.locateOnScreen(image_path, confidence=0.7, region=region)
 
 if location:
     print(f"Ruins level 2 image found at: {location}")
@@ -200,17 +209,16 @@ pyautogui.moveTo(898, 200, duration=0.15)
 
 # try to find entrance image and click on it
 try:
-    image_path = 'diablo2Images/ruinsLevel4Entrance.jpg'
-    region = (screen_width // 2, 0, screen_width // 2, screen_height)
-    location = pyautogui.locateOnScreen(image_path, confidence=0.55, region=region)
+    image_path = 'diablo2Images/ruinsLevel4Entrance2.jpg'
+    region = (0, 0, screen_width, screen_height)
+    location = pyautogui.locateOnScreen(image_path, confidence=0.7, region=region)
     if location:
         print(f"Ruins level 4 ENTRANCE image found at: {location}")
-    pyautogui.moveTo(location.left + 30, location.top + 30, duration=0.6)
+    pyautogui.moveTo(location.left + 75, location.top + 75, duration=0.6)
     pyautogui.click()
 
 except Exception as e:
-    print(f"An error occurred: {e}")
-
+    print(f"Error. Can't find level 4 Entrance: {e}")
 
 time.sleep(0.5)
 
@@ -226,8 +234,6 @@ if location:
     pyautogui.press('Esc')
 else:
     print("Printing out error: Safe Ruins image not found.")
-
-# left click to walk towards left screen
 
 # teleport to reach entrance to level 5 
 
