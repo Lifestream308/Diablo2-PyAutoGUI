@@ -4,27 +4,6 @@ import time
 # Wait for 2 seconds before starting
 time.sleep(1)
 
-# Move the mouse to position (100, 100)
-# pyautogui.moveTo(100, 100, duration=1)
-
-# Click the left mouse button
-# pyautogui.click()
-
-# Type a message
-# pyautogui.write('Hello, PyAutoGUI!', interval=0.1)
-
-# Press the Enter key
-# pyautogui.press('enter')
-
-# Press the F5 key
-# pyautogui.press('F5')
-
-# Perform a right-click at the current mouse position
-# pyautogui.rightClick()
-
-# Alternatively, you can right-click at a specific position directly
-# pyautogui.rightClick(x=200, y=200)
-
 # Print the current mouse position
 print(pyautogui.position())
 
@@ -35,3 +14,16 @@ print(pyautogui.position())
 time.sleep(1)
 
 print(pyautogui.position())
+
+# screen_width, screen_height = pyautogui.size()
+# try:
+#     image_path = 'diablo2Images/loot/lemRune.jpg'
+#     region = (0, 0, screen_width, screen_height)
+#     location = pyautogui.locateOnScreen(image_path, confidence=0.7, region=region)
+#     if location:
+#         print(f"Lem Rune image found at: {location}")
+#     pyautogui.moveTo(location.left + 10, location.top + 10, duration=0.6)
+#     pyautogui.click()
+
+# except Exception as e:
+#     print(f"Error. Can't find level 5 Entrance: {e}")

@@ -1,6 +1,7 @@
 import pyautogui
 import time
 import d2Functions
+import repeatCountessRun
 
 # Shift + Window button + S key will allow me to make screenshot of certain area I choose
 
@@ -336,6 +337,10 @@ pyautogui.press('F4')
 time.sleep(.1)
 pyautogui.rightClick()
 
+# press Alt to view loot
+time.sleep(.1)
+pyautogui.press('alt')
+
 # cast Corpse Explosion 
 time.sleep(.1)
 pyautogui.press('F2')
@@ -349,8 +354,57 @@ pyautogui.rightClick(964, 338)
 time.sleep(.1)
 
 # look for loot
-pyautogui.press('alt')
+lootImages = ['ring.jpg', 'amulet.jpg', 'umRune.jpg', 'pulRune.jpg', 'malRune.jpg', 'lemRune.jpg', 'istRune.jpg']
 
-time.sleep(2)
+for image in lootImages:
+    try:
+        image_path = f"diablo2Images/loot/{image}"
+        region = (0, 0, screen_width, screen_height)
+        location = pyautogui.locateOnScreen(image_path, confidence=0.9, region=region)
+        if location:
+            print(f"{image} found!!!")
+        pyautogui.moveTo(location.left + 10, location.top + 10, duration=0.5)
+        pyautogui.click()
+
+    except Exception as e:
+        print(f"")
+
+# pyautogui.click()
+time.sleep(.5)
+
+for image in lootImages:
+    try:
+        image_path = f"diablo2Images/loot/{image}"
+        region = (0, 0, screen_width, screen_height)
+        location = pyautogui.locateOnScreen(image_path, confidence=0.9, region=region)
+        if location:
+            print(f"{image} found!!!")
+        pyautogui.moveTo(location.left + 20, location.top + 15, duration=0.4)
+        pyautogui.click()
+
+    except Exception as e:
+        print(f"")
+
+time.sleep(1)
 
 pyautogui.press('esc')
+
+# select save and quit
+time.sleep(.2)
+pyautogui.click(936, 474)
+
+# wait for menu to appear
+time.sleep(7)
+
+# start over and select Poison character
+repeatCountessRun.repeatCountess()
+
+# select save and quit
+time.sleep(.2)
+pyautogui.click(936, 474)
+
+# wait for menu to appear
+time.sleep(7)
+
+# start over and select Poison character
+repeatCountessRun.repeatCountess()
