@@ -129,6 +129,8 @@ pyautogui.rightClick(x=1919, y=1000)
 time.sleep(0.27)
 pyautogui.rightClick(x=1919, y=1000)
 time.sleep(0.27)
+pyautogui.rightClick(x=1919, y=1000)
+time.sleep(0.27)
 
 # right click teleport to upper left side of screen to finish reaching level 2 entrance
 pyautogui.rightClick(x=1919, y=1)
@@ -137,7 +139,7 @@ pyautogui.rightClick(x=1919, y=1)
 time.sleep(0.27)
 pyautogui.rightClick(x=1919, y=1)
 time.sleep(0.27)
-pyautogui.rightClick(x=780, y=250)
+pyautogui.rightClick(x=820, y=200)
 
 # move mouse above entrance to level 2 ruins
 pyautogui.moveTo(1054, 100, duration=0.15)
