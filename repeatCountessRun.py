@@ -7,6 +7,8 @@ import d2Functions
 def repeatCountess():
     screen_width, screen_height = pyautogui.size()
 
+    d2Functions.findD2Icon
+
     # find Poison pic to select character on right screen, double click, wait 
     d2Functions.findPoisonName()
 
