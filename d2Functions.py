@@ -48,3 +48,27 @@ def findPoisonName():
     except Exception as e: 
         print(f"Printing out error: poisonName image not found.")
         print(f"An error occurred: {e}")
+
+def findHellDifficulty():
+    image_path = 'diablo2Images/hellDifficulty.jpg'
+    region = (screen_width * 2 // 5, screen_height * 2 // 5, screen_width // 5, screen_height // 5)
+    location = pyautogui.locateOnScreen(image_path, confidence=0.8, region=region)
+
+    if location:
+        print(f"Hell difficulty found at: {location}")
+        pyautogui.click(x=location.left, y=location.top)
+    else:
+        print("Printing out error: Hell difficulty image not found.")
+
+def checkGameStarted():
+    image_path = 'diablo2Images/angelArm.jpg'
+    region = (0, screen_height * 5 // 6, screen_width // 4, screen_height // 6)
+    location = pyautogui.locateOnScreen(image_path, confidence=0.8, region=region)
+
+    if location:
+        print(f"Game loaded. Angel arm found at: {location}")
+        pyautogui.click(x=1320, y=250)
+    else:
+        print("Printing out error: Angel arm image not found.")
+        time.sleep(5)
+        pyautogui.click(x=1320, y=250)

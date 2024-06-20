@@ -348,7 +348,7 @@ def repeatCountess():
     time.sleep(.1)
 
     # look for loot
-    lootImages = ['ring.jpg', 'amulet.jpg', 'umRune.jpg', 'pulRune.jpg', 'malRune.jpg', 'lemRune.jpg', 'istRune.jpg']
+    lootImages = ['ring.jpg', 'amulet.jpg', 'umRune.jpg', 'pulRune.jpg', 'malRune.jpg', 'lemRune.jpg', 'istRune.jpg', 'sapphire.jpg', 'charm.jpg']
 
     for image in lootImages:
         try:

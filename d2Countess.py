@@ -19,31 +19,13 @@ d2Functions.findPoisonName()
 time.sleep(1)
 
 # find Hell pic, click, wait for load
-image_path = 'diablo2Images/hellDifficulty.jpg'
-region = (screen_width * 2 // 5, screen_height * 2 // 5, screen_width // 5, screen_height // 5)
-location = pyautogui.locateOnScreen(image_path, confidence=0.8, region=region)
-
-if location:
-    print(f"Hell difficulty found at: {location}")
-    pyautogui.click(x=location.left, y=location.top)
-else:
-    print("Printing out error: Hell difficulty image not found.")
+d2Functions.findHellDifficulty()
 
 # Should now be in act 1
 
 # wait and check if loading screen finished, then click halfway to waypoint
 time.sleep(11)
-image_path = 'diablo2Images/angelArm.jpg'
-region = (0, screen_height * 5 // 6, screen_width // 4, screen_height // 6)
-location = pyautogui.locateOnScreen(image_path, confidence=0.8, region=region)
-
-if location:
-    print(f"Game loaded. Angel arm found at: {location}")
-    pyautogui.click(x=1320, y=250)
-else:
-    print("Printing out error: Angel arm image not found.")
-    time.sleep(5)
-    pyautogui.click(x=1320, y=250)
+d2Functions.checkGameStarted()
 
 time.sleep(0.8)
 
@@ -354,7 +336,7 @@ pyautogui.rightClick(964, 338)
 time.sleep(.1)
 
 # look for loot
-lootImages = ['ring.jpg', 'amulet.jpg', 'umRune.jpg', 'pulRune.jpg', 'malRune.jpg', 'lemRune.jpg', 'istRune.jpg']
+lootImages = ['ring.jpg', 'amulet.jpg', 'umRune.jpg', 'pulRune.jpg', 'malRune.jpg', 'lemRune.jpg', 'istRune.jpg', 'sapphire.jpg', 'charm.jpg']
 
 for image in lootImages:
     try:
@@ -389,22 +371,16 @@ time.sleep(1)
 
 pyautogui.press('esc')
 
-# select save and quit
-time.sleep(.2)
-pyautogui.click(936, 474)
+# loop here determines how many extra rounds to run countess
+j = 0
+while j < 9:
+    # select save and quit
+    time.sleep(.2)
+    pyautogui.click(936, 474)
 
-# wait for menu to appear
-time.sleep(7)
+    # wait for menu to appear
+    time.sleep(7)
 
-# start over and select Poison character
-repeatCountessRun.repeatCountess()
-
-# select save and quit
-time.sleep(.2)
-pyautogui.click(936, 474)
-
-# wait for menu to appear
-time.sleep(7)
-
-# start over and select Poison character
-repeatCountessRun.repeatCountess()
+    # start over and select Poison character
+    repeatCountessRun.repeatCountess()
+    j += 1
