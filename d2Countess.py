@@ -2,17 +2,27 @@ import pyautogui
 import time
 import sys
 import d2Functions
+import keyboard
 
 # Shift + Window button + S key will allow me to make screenshot of certain area I choose
 
 j = 0
-numOfLoops = 10
+numOfLoops = 50
+running = True
 
 screen_width, screen_height = pyautogui.size()
+
+def stopScript():
+    global running
+    print("You pressed 'q'. Exiting...")
+    running = False
+
+keyboard.add_hotkey('q', stopScript)
 
 def startCountess():
     global j
     global numOfLoops
+    global running
 
     # find d2 icon on bottom screen, click on icon
     d2Functions.findD2Icon()
@@ -44,6 +54,8 @@ def startCountess():
     # select teleport spell, move to ruins entrance and enter
     d2Functions.ruinsEntrance()
 
+    time.sleep(.2)
+
     # Check image to see if inside the safe part of the ruins. Unpause if safe
     image_path = 'diablo2Images/safeRuins2.jpg'
     region = (0, 0, screen_width // 2, screen_height)
@@ -65,8 +77,8 @@ def startCountess():
         # wait for menu to appear
         time.sleep(7)
 
-        # loop here determines how many times to run countess
-        while j < numOfLoops:
+        # loop here determines how many times to run counand notess
+        while j < numOfLoops and running:
             startCountess()
             j += 1
         sys.exit()
@@ -114,8 +126,8 @@ def startCountess():
         # wait for menu to appear
         time.sleep(7)
 
-        # loop here determines how many times to run countess
-        while j < numOfLoops:
+        # loop here determines how many times to run counand notess
+        while j < numOfLoops and running:
             startCountess()
             j += 1
         sys.exit()
@@ -174,16 +186,34 @@ def startCountess():
 
     pyautogui.press('Esc')
 
+    time.sleep(.1)
+
     # Check image to see if inside the safe part of ruins level 4. Unpause if at level 4
     image_path = 'diablo2Images/ruinsLevel4.jpg'
     region = (screen_width // 2, 0, screen_width // 2, screen_height)
-    location = pyautogui.locateOnScreen(image_path, confidence=0.7, region=region)
 
-    if location:
-        print(f"Ruins level 4 image found at: {location}")
-        pyautogui.press('Esc')
-    else:
-        print("Printing out error: Safe Ruins image not found.")
+    try:
+        location = pyautogui.locateOnScreen(image_path, confidence=0.7, region=region)
+
+        if location:
+            print(f"Ruins Level 4 found.")
+            pyautogui.press('esc')
+    
+    except Exception as e: 
+        print(f"Printing out error: Ruins Level 4 image not found.")
+        print(f"An error occurred: {e}")
+        # select save and quit
+        time.sleep(1)
+        pyautogui.click(936, 474)
+
+        # wait for menu to appear
+        time.sleep(7)
+
+        # loop here determines how many times to run counand notess
+        while j < numOfLoops and running:
+            startCountess()
+            j += 1
+        sys.exit()
 
     time.sleep(.5)
 
@@ -246,8 +276,8 @@ def startCountess():
         # wait for menu to appear
         time.sleep(7)
 
-        # loop here determines how many times to run countess
-        while j < numOfLoops:
+        # loop here determines how many times to run counand notess
+        while j < numOfLoops and running:
             startCountess()
             j += 1
         sys.exit()
@@ -359,7 +389,9 @@ def startCountess():
     # wait for menu to appear
     time.sleep(7)
 
+    print(f"{j+1} Completed")
+
 # loop here determines how many times to run countess
-while j < numOfLoops:
+while j < numOfLoops and running:
     startCountess()
     j += 1

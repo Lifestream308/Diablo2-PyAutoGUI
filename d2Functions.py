@@ -105,7 +105,7 @@ def ruinsEntrance():
     pyautogui.moveTo(x=927, y=635, duration=.5)
     pyautogui.click()
 
-    time.sleep(1.5)
+    time.sleep(2)
     pyautogui.press('Esc')
 
 def clickWaypoint(): 
