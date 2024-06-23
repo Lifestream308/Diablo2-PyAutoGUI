@@ -101,7 +101,7 @@ def startCountess():
     # right click teleport to right side of screen closer to level 2
     d2Functions.reachRuins2()
 
-    time.sleep(0.5)
+    time.sleep(0.8)
 
     pyautogui.press('Esc')
 
@@ -347,17 +347,18 @@ def startCountess():
     time.sleep(.1)
 
     # look for loot
-    lootImages = ['ring.jpg', 'amulet.jpg', 'umRune.jpg', 'pulRune.jpg', 'malRune.jpg', 'lemRune.jpg', 'istRune.jpg', 'sapphire.jpg', 'charm.jpg']
+    lootImages = ['ring', 'amulet', 'umRune', 'pulRune', 'malRune', 'lemRune', 'istRune', 'charm', 'amethyst', 'diamond', 'skull', 'topaz', 'jewel', 'phaseBlade', 'gold']
 
     for image in lootImages:
         try:
-            image_path = f"diablo2Images/loot/{image}"
+            image_path = f"diablo2Images/loot/{image}.jpg"
             region = (0, 0, screen_width, screen_height)
             location = pyautogui.locateOnScreen(image_path, confidence=0.9, region=region)
             if location:
                 print(f"{image} found!!!")
-            pyautogui.moveTo(location.left + 10, location.top + 10, duration=0.5)
-            pyautogui.click()
+                pyautogui.moveTo(location.left + 10, location.top + 10, duration=0.3)
+                pyautogui.click()
+                time.sleep(.2)
 
         except Exception as e:
             print(f"")
@@ -367,13 +368,14 @@ def startCountess():
 
     for image in lootImages:
         try:
-            image_path = f"diablo2Images/loot/{image}"
+            image_path = f"diablo2Images/loot/{image}.jpg"
             region = (0, 0, screen_width, screen_height)
             location = pyautogui.locateOnScreen(image_path, confidence=0.9, region=region)
             if location:
                 print(f"{image} found!!!")
-            pyautogui.moveTo(location.left + 20, location.top + 15, duration=0.4)
-            pyautogui.click()
+                pyautogui.moveTo(location.left + 20, location.top + 15, duration=0.3)
+                pyautogui.click()
+                time.sleep(.2)
 
         except Exception as e:
             print(f"")
