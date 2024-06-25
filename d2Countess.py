@@ -7,7 +7,7 @@ import keyboard
 # Shift + Window button + S key will allow me to make screenshot of certain area I choose
 
 j = 0
-numOfLoops = 50
+numOfLoops = 100
 running = True
 
 screen_width, screen_height = pyautogui.size()
@@ -347,7 +347,27 @@ def startCountess():
     time.sleep(.1)
 
     # look for loot
-    lootImages = ['ring', 'amulet', 'umRune', 'pulRune', 'malRune', 'lemRune', 'istRune', 'charm', 'amethyst', 'diamond', 'skull', 'topaz', 'jewel', 'phaseBlade', 'gold']
+    lootImages = [
+                'ring', 
+                'amulet', 
+                'vexRune', 
+                'gulRune', 
+                'istRune', 
+                'malRune', 
+                'umRune', 
+                'pulRune', 
+                'lemRune', 
+                'charm', 
+                'jewel', 
+                # 'ruby', 
+                # 'emerald', 
+                # 'diamond', 
+                'flawedDiamond', 
+                'sapphire', 
+                'amethyst', 
+                'topaz', 
+                'skull', 
+                'gold']
 
     for image in lootImages:
         try:
