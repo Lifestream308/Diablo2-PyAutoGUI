@@ -38,9 +38,23 @@ def startCountess():
     d2Functions.findHellDifficulty()
 
     # Should now be in act 1
+    time.sleep(11)
+
+    # check if mercenary alive and if game started
+    image_path = 'diablo2Images/mercenary.jpg'
+    region = (0, 0, screen_width // 5, screen_height // 5)
+
+    try:
+        location = pyautogui.locateOnScreen(image_path, confidence=0.7, region=region)
+
+        if location:
+            print(f"Mercenary image found.")
+    
+    except Exception as e: 
+        print(f"Mercenary image not found.")
+        sys.exit()
 
     # wait and check if loading screen finished, then click halfway to waypoint
-    time.sleep(11)
     d2Functions.checkGameStarted()
 
     time.sleep(0.8)
@@ -356,17 +370,17 @@ def startCountess():
                 'malRune', 
                 'umRune', 
                 'pulRune', 
-                'lemRune', 
                 'charm', 
                 'jewel', 
-                # 'ruby', 
+                # 'lemRune', 
+                'ruby', 
                 # 'emerald', 
                 # 'diamond', 
                 'flawedDiamond', 
                 'sapphire', 
                 'amethyst', 
                 'topaz', 
-                'skull', 
+                # 'skull', 
                 'gold']
 
     for image in lootImages:
