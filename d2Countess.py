@@ -6,8 +6,8 @@ import keyboard
 
 # Shift + Window button + S key will allow me to make screenshot of certain area I choose
 
-j = 0
-numOfLoops = 100
+loopsCompleted = 0
+totalLoops = 100
 running = True
 
 screen_width, screen_height = pyautogui.size()
@@ -21,8 +21,8 @@ keyboard.add_hotkey('q', stopScript)
 keyboard.add_hotkey('tab', stopScript)
 
 def startCountess():
-    global j
-    global numOfLoops
+    global loopsCompleted
+    global totalLoops
     global running
 
     # find d2 icon on bottom screen, click on icon
@@ -93,9 +93,9 @@ def startCountess():
         time.sleep(7)
 
         # loop here determines how many times to run counand notess
-        while j < numOfLoops and running:
+        while loopsCompleted < totalLoops and running:
             startCountess()
-            j += 1
+            loopsCompleted += 1
         sys.exit()
 
     # location = pyautogui.locateOnScreen(image_path, confidence=0.7, region=region)
@@ -142,9 +142,9 @@ def startCountess():
         time.sleep(7)
 
         # loop here determines how many times to run counand notess
-        while j < numOfLoops and running:
+        while loopsCompleted < totalLoops and running:
             startCountess()
-            j += 1
+            loopsCompleted += 1
         sys.exit()
 
     time.sleep(1)
@@ -225,9 +225,9 @@ def startCountess():
         time.sleep(7)
 
         # loop here determines how many times to run counand notess
-        while j < numOfLoops and running:
+        while loopsCompleted < totalLoops and running:
             startCountess()
-            j += 1
+            loopsCompleted += 1
         sys.exit()
 
     time.sleep(.5)
@@ -292,9 +292,9 @@ def startCountess():
         time.sleep(7)
 
         # loop here determines how many times to run counand notess
-        while j < numOfLoops and running:
+        while loopsCompleted < totalLoops and running:
             startCountess()
-            j += 1
+            loopsCompleted += 1
         sys.exit()
 
     # teleport to countess
@@ -426,9 +426,9 @@ def startCountess():
     # wait for menu to appear
     time.sleep(7)
 
-    print(f"{j+1} Completed")
+    print(f"{loopsCompleted+1} Completed")
 
 # loop here determines how many times to run countess
-while j < numOfLoops and running:
+while loopsCompleted < totalLoops and running:
     startCountess()
-    j += 1
+    loopsCompleted += 1
