@@ -18,6 +18,7 @@ def stopScript():
     running = False
 
 keyboard.add_hotkey('q', stopScript)
+keyboard.add_hotkey('tab', stopScript)
 
 def startCountess():
     global j
