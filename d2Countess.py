@@ -6,6 +6,8 @@ import keyboard
 
 # Shift + Window button + S key will allow me to make screenshot of certain area I choose
 
+# Each run takes about 1 minute, 30 seconds to complete. 40 perfect runs /hr. 35 safer number. 70/2. 105/3. 140/4. 175/5. 210/6. 280/8. 350/10.
+
 loopsCompleted = 0
 totalLoops = 100
 running = True
@@ -55,6 +57,13 @@ def startCountess():
     
     except Exception as e: 
         print(f"Mercenary image not found.")
+        # click down + right to move closer to Kashya
+        # search multiple times for kashya images
+        # click Kashya if found
+        # search for resurrectVik picture option
+        # click option to resurrect Vik
+        # exit to main menu
+        # begin countess runs again and remove sys exit below
         sys.exit()
 
     # wait and check if loading screen finished, then click halfway to waypoint
