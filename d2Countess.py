@@ -9,6 +9,7 @@ import keyboard
 loopsCompleted = 0
 totalLoops = 100
 running = True
+lootDropped = {}
 
 screen_width, screen_height = pyautogui.size()
 
@@ -24,6 +25,7 @@ def startCountess():
     global loopsCompleted
     global totalLoops
     global running
+    global lootDropped
 
     # find d2 icon on bottom screen, click on icon
     d2Functions.findD2Icon()
@@ -375,47 +377,42 @@ def startCountess():
                 'jewel', 
                 # 'lemRune', 
                 'ruby', 
-                # 'emerald', 
+                'emerald', 
                 # 'diamond', 
-                'flawedDiamond', 
+                # 'flawedDiamond', 
                 'sapphire', 
                 'amethyst', 
-                'topaz', 
+                # 'topaz', 
                 # 'skull', 
                 'gold']
 
-    for image in lootImages:
-        try:
-            image_path = f"diablo2Images/loot/{image}.jpg"
-            region = (0, 0, screen_width, screen_height)
-            location = pyautogui.locateOnScreen(image_path, confidence=0.9, region=region)
-            if location:
-                print(f"{image} found!!!")
-                pyautogui.moveTo(location.left + 10, location.top + 10, duration=0.3)
-                pyautogui.click()
-                time.sleep(.2)
+    for i in range (2):
+        for image in lootImages:
+            try:
+                image_path = f"diablo2Images/loot/{image}.jpg"
+                region = (0, 0, screen_width, screen_height)
+                location = pyautogui.locateOnScreen(image_path, confidence=0.9, region=region)
+                if location:
+                    print(f"{image} found!!!")
+                    pyautogui.moveTo(location.left + 20, location.top + 15, duration=0.3)
+                    pyautogui.click()
+                    # add the dropped loot to dictionary
+                    if image not in lootDropped:
+                        lootDropped[image] = 1
+                    else:
+                        lootDropped[image] += 1
+                    time.sleep(.2)
 
-        except Exception as e:
-            print(f"")
+            except Exception as e:
+                pass
+                # print(f"")
+        if i >= 1:
+            print(lootDropped)
 
-    # pyautogui.click()
+        # pyautogui.click()
+        time.sleep(.5)
+
     time.sleep(.5)
-
-    for image in lootImages:
-        try:
-            image_path = f"diablo2Images/loot/{image}.jpg"
-            region = (0, 0, screen_width, screen_height)
-            location = pyautogui.locateOnScreen(image_path, confidence=0.9, region=region)
-            if location:
-                print(f"{image} found!!!")
-                pyautogui.moveTo(location.left + 20, location.top + 15, duration=0.3)
-                pyautogui.click()
-                time.sleep(.2)
-
-        except Exception as e:
-            print(f"")
-
-    time.sleep(1)
 
     pyautogui.press('esc')
 
