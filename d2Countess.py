@@ -57,13 +57,41 @@ def startCountess():
     
     except Exception as e: 
         print(f"Mercenary image not found.")
-        # click down + right to move closer to Kashya
+        # click down + right to move closer to Kashya which is x=900, y=955
+        pyautogui.click(x=900, y=955)
+        time.sleep(0.5)
         # search multiple times for kashya images
-        # click Kashya if found
-        # search for resurrectVik picture option
-        # click option to resurrect Vik
-        # exit to main menu
+        for i in range(3):
+            for i in range(8):
+                try:
+                    image_path = f"diablo2Images/loot/kashya/kashya{i+1}.jpg"
+                    region = (0, 0, screen_width, screen_height)
+                    location = pyautogui.locateOnScreen(image_path, confidence=0.9, region=region)
+                    # click Kashya if found
+                    if location:
+                        print(f"kashya{i+1} found!!!")
+                        pyautogui.moveTo(location.left + 20, location.top + 15, duration=0.2)
+                        pyautogui.click()
+                        time.sleep(1)
+                        # search for resurrectVik picture option
+                        try:
+                            image_path = f"diablo2Images/loot/kashya/resurrectVik.jpg"
+                            region = (0, 0, screen_width, screen_height)
+                            location = pyautogui.locateOnScreen(image_path, confidence=0.9, region=region)
+                            # click option to resurrect mercenary if found
+                            if location:
+                                print(f"Resurrect Vik picture found!!!")
+                                pyautogui.moveTo(location.left + 20, location.top + 15, duration=0.2)
+                                pyautogui.click()
+                                time.sleep(0.3)
+                                # exit to main menu
         # begin countess runs again and remove sys exit below
+
+                        except Exception as e:
+                            pass
+
+                except Exception as e:
+                    pass
         sys.exit()
 
     # wait and check if loading screen finished, then click halfway to waypoint
@@ -385,7 +413,7 @@ def startCountess():
                 'charm', 
                 'jewel', 
                 # 'lemRune', 
-                'ruby', 
+                # 'ruby', 
                 'emerald', 
                 # 'diamond', 
                 # 'flawedDiamond', 
