@@ -58,18 +58,18 @@ def startCountess():
     except Exception as e: 
         print(f"Mercenary image not found.")
         # click down + right to move closer to Kashya which is x=900, y=955
-        pyautogui.click(x=900, y=955)
+        pyautogui.click(x=700, y=955)
         time.sleep(0.5)
         # search multiple times for kashya images
-        for i in range(3):
-            for i in range(8):
+        for i in range(10):
+            for j in range(7):
                 try:
-                    image_path = f"diablo2Images/loot/kashya/kashya{i+1}.jpg"
+                    image_path = f"diablo2Images/loot/kashya/kashya{j+1}.jpg"
                     region = (0, 0, screen_width, screen_height)
-                    location = pyautogui.locateOnScreen(image_path, confidence=0.9, region=region)
+                    location = pyautogui.locateOnScreen(image_path, confidence=0.65, region=region)
                     # click Kashya if found
                     if location:
-                        print(f"kashya{i+1} found!!!")
+                        print(f"kashya{j+1} found!!!")
                         pyautogui.moveTo(location.left + 20, location.top + 15, duration=0.2)
                         pyautogui.click()
                         time.sleep(1)
@@ -84,14 +84,26 @@ def startCountess():
                                 pyautogui.moveTo(location.left + 20, location.top + 15, duration=0.2)
                                 pyautogui.click()
                                 time.sleep(0.3)
-                                # exit to main menu
-        # begin countess runs again and remove sys exit below
-
+                                # press escape button 2 times to exit dialogue and bring up save and exit menu
+                                pyautogui.press('esc')
+                                time.sleep(1)
+                                pyautogui.press('esc')
+                                time.sleep(1)
+                                # press save and exit button
+                                pyautogui.click(936, 474)
+                                # wait for menu to appear
+                                time.sleep(7)
+                                # begin countess runs again and remove sys exit below and above. replace below exit with startCountess?
+                                startCountess()
+                            else: 
+                                print("Resurrect Vik picture not found")
+                                
                         except Exception as e:
                             pass
 
                 except Exception as e:
                     pass
+        print("Couldn't find Kashya image")
         sys.exit()
 
     # wait and check if loading screen finished, then click halfway to waypoint
