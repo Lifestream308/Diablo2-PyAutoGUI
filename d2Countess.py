@@ -61,7 +61,7 @@ def startCountess():
         pyautogui.click(x=700, y=955)
         time.sleep(0.5)
         # search multiple times for kashya images
-        for i in range(10):
+        for i in range(15):
             for j in range(7):
                 try:
                     image_path = f"diablo2Images/loot/kashya/kashya{j+1}.jpg"
@@ -84,6 +84,10 @@ def startCountess():
                                 pyautogui.moveTo(location.left + 20, location.top + 15, duration=0.2)
                                 pyautogui.click()
                                 time.sleep(0.3)
+                                if "Resurrections" not in lootDropped:
+                                    lootDropped["Resurrections"] = 1
+                                else:
+                                    lootDropped["Resurrections"] += 1
                                 # press escape button 2 times to exit dialogue and bring up save and exit menu
                                 pyautogui.press('esc')
                                 time.sleep(1)
