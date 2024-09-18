@@ -96,8 +96,10 @@ def startCountess():
                                 # press save and exit button
                                 pyautogui.click(936, 474)
                                 # wait for menu to appear
+                                print(f"Previous line of code should have exited to main menu")
                                 time.sleep(7)
                                 # begin countess runs again and remove sys exit below and above. replace below exit with startCountess?
+                                print(f"Next line should startCountess function again")
                                 startCountess()
                             else: 
                                 print("Resurrect Vik picture not found")
@@ -107,8 +109,8 @@ def startCountess():
 
                 except Exception as e:
                     pass
-        print("Couldn't find Kashya image")
-        sys.exit()
+        print("Couldn't find Kashya image. Running into issue here where sometimes run once more, then stops at main menu? commented out sys exit so now will it check if arm pic is found and exit there?")
+        # sys.exit()
 
     # wait and check if loading screen finished, then click halfway to waypoint
     d2Functions.checkGameStarted()
@@ -429,13 +431,13 @@ def startCountess():
                 'charm', 
                 'jewel', 
                 # 'lemRune', 
-                # 'ruby', 
-                'emerald', 
                 # 'diamond', 
-                # 'flawedDiamond', 
+                # 'emerald', 
+                'ruby', 
                 'sapphire', 
                 'amethyst', 
                 # 'topaz', 
+                # 'flawedDiamond', 
                 # 'skull', 
                 'gold']
 
