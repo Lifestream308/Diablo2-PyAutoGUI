@@ -104,12 +104,13 @@ def startCountess():
                             else: 
                                 print("Resurrect Vik picture not found")
                                 
-                        except Exception as e:
+                        except Exception as e3:
                             pass
 
-                except Exception as e:
+                except Exception as e2:
                     pass
-        print("Couldn't find Kashya image. Running into issue here where sometimes run once more, then stops at main menu? commented out sys exit so now will it check if arm pic is found and exit there?")
+        print("Couldn't find Kashya image. Running into issue here where sometimes run once more, then stops at main menu? commented out sys exit so now will it check if arm pic is found and exit there? adding start Countess testing")
+        startCountess()
         # sys.exit()
 
     # wait and check if loading screen finished, then click halfway to waypoint
@@ -433,7 +434,7 @@ def startCountess():
                 # 'lemRune', 
                 # 'diamond', 
                 # 'emerald', 
-                'ruby', 
+                # 'ruby', 
                 'sapphire', 
                 'amethyst', 
                 # 'topaz', 
