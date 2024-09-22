@@ -46,6 +46,7 @@ def startCountess():
     time.sleep(11)
 
     # check if mercenary alive and if game started
+    mercenaryIsDead = False
     image_path = 'diablo2Images/mercenary.jpg'
     region = (0, 0, screen_width // 5, screen_height // 5)
 
@@ -57,6 +58,9 @@ def startCountess():
     
     except Exception as e: 
         print(f"Mercenary image not found.")
+        mercenaryIsDead = True
+
+    if mercenaryIsDead:
         # click down + right to move closer to Kashya which is x=900, y=955
         pyautogui.click(x=700, y=955)
         time.sleep(0.5)
@@ -111,7 +115,7 @@ def startCountess():
                     pass
         print("Couldn't find Kashya image. Running into issue here where sometimes run once more, then stops at main menu? commented out sys exit so now will it check if arm pic is found and exit there? adding start Countess testing")
         startCountess()
-        # sys.exit()
+        # sys.exit
 
     # wait and check if loading screen finished, then click halfway to waypoint
     d2Functions.checkGameStarted()
