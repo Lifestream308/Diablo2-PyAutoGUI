@@ -104,7 +104,10 @@ def startCountess():
                                 time.sleep(7)
                                 # begin countess runs again and remove sys exit below and above. replace below exit with startCountess?
                                 print(f"Next line should startCountess function again")
-                                startCountess()
+                                while loopsCompleted < totalLoops and running:
+                                    startCountess()
+                                    loopsCompleted += 1
+                                sys.exit()
                             else: 
                                 print("Resurrect Vik picture not found")
                                 
@@ -114,8 +117,10 @@ def startCountess():
                 except Exception as e2:
                     pass
         print("Couldn't find Kashya image. Running into issue here where sometimes run once more, then stops at main menu? commented out sys exit so now will it check if arm pic is found and exit there? adding start Countess testing")
-        startCountess()
-        # sys.exit
+        # while loopsCompleted < totalLoops and running:
+        #     startCountess()
+        #     loopsCompleted += 1
+        sys.exit()
 
     # wait and check if loading screen finished, then click halfway to waypoint
     d2Functions.checkGameStarted()
